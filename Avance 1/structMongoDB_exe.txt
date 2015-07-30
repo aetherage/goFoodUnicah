@@ -1,0 +1,80 @@
+|----------------------------------------------------------|
+|:::Comandos para insertar las tablas en la base de mongo::|
+|----------------------------------------------------------|
+
+|----------------|
+|Usuario basico: |
+|----------------|
+
+
+use gofood
+var usuario ={"idUsuario": " ","nombreUsuario" :" ","contraseña" : " ","tipoUsuario": " ","favoritos":[{"idEstablecimiento": " ","nombreEstablecimiento": " "},],"correoElectronico": "   ","puntos": "    ","estado": "  "}
+db.usuario.insert(usuario)
+
+
+|----------------|
+|Usuario Premium:|
+|----------------|
+
+
+use gofood
+var premium ={"idUsuario": 002,"nombreUsuario": "Usuario Premium de Prueba","correoElectronico": "CorreoPremium@prueba.net","telefono": 11223344,"contraseña": "pswPremium","tipoUsuario": 02,"puntos" : 0,"estado" : 0,"favoritos":[{"idEstablecimiento": 010203,"nombreEstablecimiento": "OtraComida"},],"establecimiento":{"nombreEstablecimiento": "Carnitas","urlEstablecimientoJPG": " */imagenes/002/Carnitas/imagenLocal.jpg ","comentarioSobreEstablecimiento":[{"idUsuario": 23856752,"comentarioDeCliente": "Me gusto Mucho","estrellasPorUsuario": 4},],"promociones":[{"nombrePromocion": "CarneCombo","precioPromocion": 79.99,"horaInicial": 1000,"horaFinal": 1300,"descripcion": "Combo de Carne con papas y refresco","urlImagen": " */imagenes/002/Carnitas/imagenPromo.jpg"},],"estrellasEstablecimiento": 4}}
+db.premium.insert(premium)
+
+
+|----------------|
+|Administrador:  |
+|----------------|
+
+
+use gofood
+var administrador ={"idUsuario": " ","nombreUsuario": " ","contraseña": " "}
+db.admin.insert(administrador)
+
+
+
+-----------------------------------------------------------------------------.
+
+|----------------------------|
+|:::::::::Doc pruebas::::::::|
+|----------------------------|
+
+--------------------|
+Prueba para Premium:|
+--------------------|
+var premium =
+	{
+		"idUsuario": 002,
+		"nombreUsuario": "Usuario Premium de Prueba",
+		"correoElectronico": "CorreoPremium@prueba.net",
+		"telefono": 11223344,
+		"contraseña": "pswPremium",
+		"establecimiento": 
+				{
+					"nombreEstablecimiento": "Carnitas",
+					"urlEstablecimientoJPG": " */imagenes/002/Carnitas/imagenLocal.jpg ",
+					"estrellasEstablecimiento": 4,
+					"comentarioSobreEstablecimiento":
+								{
+									"idUsuario": 23856752,
+									"comentarioDeCliente": "Me gusto Mucho",
+									"estrellasPorUsuario": 4
+								},
+					"promociones":
+								{
+									"nombrePromocion": "CarneCombo",
+									"precioPromocion": 79.99,
+									"horaInicial": 1000,
+									"horaFinal": 1300,
+									"descripcion": "Combo de Carne con papas y refresco",
+									"urlImagen": " */imagenes/002/Carnitas/imagenPromo.jpg"
+								}
+				}
+		"tipoUsuario": 02,
+		"favoritos": {	
+					"idEstablecimiento": 010203,
+					"nombreEstablecimiento": "OtraComida"
+				},
+		"puntos" : 0,
+		"estado" : 0
+	}
