@@ -1,0 +1,32 @@
+<div style="background-repeat: no-repeat no-repeat; background-size: auto auto;" data-theme="a" id="home" data-role="page">
+  <div data-role="header">
+    <h3>GoFood | Unicah</h3>
+    <h1 is="gk-text">Registro </h1>
+  </div>
+  <br>
+  <form >
+  <div role="main" class="ui-content">
+    <div class="ui-field-contain">
+      <label for="gk-723nHf5">Correo electrónico:</label>
+      <input name id="gk-723nHf5" type="text">
+      <label for="gk-7235cyD">Nombre de usuario:</label>
+      <input name id="gk-7235cyD" type="text">
+      <label for="gk-723YZ2g">Contraseña:</label>
+      <input name id="gk-723YZ2g" type="password">
+      <label for="gk-723RTTS">Confirmación de contraseña:</label>
+      <input name id="gk-723RTTS" type="text">
+    </div>
+    <fieldset data-role="controlgroup" data-type="vertical">
+      <legend>Tipo de usuario:</legend>
+      <input id="gk-723mENP" name="gk-723mENP" type="radio" checked>
+      <label for="gk-723mENP">Consumidor</label>
+      <input id="gk-723XO6i" name="gk-723XO6i" type="radio">
+      <label for="gk-723XO6i">Vendedor</label>
+    </fieldset>
+    <a class="ui-btn">Registrarse</a>
+  </div>
+  </form>
+  <br>
+  <div data-position="fixed" data-role="footer"></div>
+  <div data-position="fixed" data-role="footer"></div>
+</div>

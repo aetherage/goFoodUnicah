@@ -1,0 +1,21 @@
+<div id="login" data-role="page">
+  <div data-role="header" data-position="fixed" data-theme="b">
+    <h3>GoFood | Unicah</h3>
+  </div>
+  <div role="main" class="ui-content">
+    <img style="width:40%;" src="http://jqmdesigner.appspot.com/images/image.png" is="image">
+    <div class="ui-field-contain">
+      <label for="accName">Usuario:</label>
+      <input type="text" name id="accName">
+    </div>
+    <div class="ui-field-contain">
+      <label for="passwd">Contraseña:</label>
+      <input type="password" name id="passwd">
+    </div>
+    <a id="entrar" class="ui-btn ui-btn-b ">Entrar</a>
+    <a id="registrarse" class="ui-btn ui-btn-b ">Registrarse</a>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h3></h3>
+  </div>
+</div>
