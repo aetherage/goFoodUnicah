@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/home');
+var routes = require('./routes/index');
 var users = require('./routes/users');
 
 function returnApp(db){
@@ -24,12 +24,12 @@ function returnApp(db){
     app.use(require('less-middleware')(path.join(__dirname, 'public')));
     app.use(express.static(path.join(__dirname, 'public')));
 
-    /*app.use('/', routes);*/
-    app.get("./routes/home.js",function(req,res){
-      req.render("layout",{});
+    //app.use('/', routes);
+    app.get("/", function(req,res){
+        res.render("mobile",{});
     })
-    app.get("/index.hbs",function(req,res){
-      req.render("index",{});
+    app.get("/p2", function(req,res){
+        res.render("pagina2",{});
     })
     app.use('/users', users);
 
@@ -37,8 +37,8 @@ function returnApp(db){
     // la uri del módulo y debe especificar
     // en el módulo la exportación con
     // module.exports = <<funcion>>
-    /*var api = require('./routes/api.js')(db);
-    app.use('/api/v0', api);*/
+    var api = require('./routes/api.js')(db);
+    app.use('/api/v0', api);
     // http://localhost:3000/api/v0/obtenerLibros
 
     // catch 404 and forward to error handler

@@ -1,7 +1,7 @@
 var express = require('express');
 var apirouter = express.Router();
 
-/*function api(db){
+function api(db){
     //Colecciones
     var libros = db.collection("libros");
     //Rutas
@@ -23,6 +23,13 @@ var apirouter = express.Router();
         }
     ) // obtenerLibro
 
+
+    apirouter.get("/views/index.hbs/:isbn",
+        function(req, res){
+            res.status(500).json({"error":"Función no Implementada"});
+        }
+    )
+
     apirouter.post("/modificarLibro/:isbn",
         function(req, res){
             res.status(500).json({"error":"Función no Implementada"});
@@ -42,6 +49,6 @@ var apirouter = express.Router();
         }
     ) // eliminarLibro
     return apirouter;
-}*/
+}
 
 module.exports = api;

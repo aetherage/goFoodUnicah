@@ -1,6 +1,6 @@
 {
-  "name": "goFoodUnicah",
-  "version": "0.12.4",
+  "name": "proyectoFood",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
