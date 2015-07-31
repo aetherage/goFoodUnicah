@@ -3,49 +3,82 @@ var apirouter = express.Router();
 
 function api(db){
     //Colecciones
-    var libros = db.collection("libros");
+    //http://mongodb.github.io/node-mongodb-native/2.0/api/Collection.html
+    var usuario = db.collection("usuario");
     //Rutas
-    apirouter.get("/obtenerlibros",
+    apirouter.get("/obtenerusuarios",
         function(req, res){
             var query = {};
-            libros.find(query).toArray(function(err, vLibros){
+            usuario.find(query).toArray(function(err, vUsuario){
                 if(err){
                     res.status(500).json({"error":err});
                 }else{
-                    res.status(200).json({"libros":vLibros});
+                    res.status(200).json({"usuario":vUsuario});
                 }
             }) // libros.find toarray
         }
     ) // obtenerLibros
-    apirouter.get("/obtenerLibro/:isbn",
+    apirouter.get("/obtenerUsuario/:nombreUsuario",
         function(req, res){
-            res.status(500).json({"error":"Función no Implementada"});
+            var query = {"nombreUsuario": req.params.nombreUsuario};
+            usuario.findOne(query, function(err, doc){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"usuario":doc});
+                }
+            });
+
         }
     ) // obtenerLibro
 
-
-    apirouter.get("/views/index.hbs/:isbn",
-        function(req, res){
-            res.status(500).json({"error":"Función no Implementada"});
-        }
-    )
-
     apirouter.post("/modificarLibro/:isbn",
         function(req, res){
-            res.status(500).json({"error":"Función no Implementada"});
+            var query = {"isbn": req.params.isbn};
+            var upd = {"$set":{"titulo":req.body.titulo}};
+
+            libros.updateOne(query,upd,{w:1},function(err, doc){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"libro":doc});
+                }
+            });
         }
     ) // modificarLibro
 
-    apirouter.put("/agregarLibro",
+    apirouter.put("/agregarUsuario",
         function(req, res){
-            res.status(500).json({"error":"Función no Implementada"});
+            console.log(req.body);
+            var newUsuario = {};
+            newUsuario.idUsuario = req.body.idUsuario;
+            newUsuario.nombreUsuario = req.body.nombreUsuario;
+            newUsuario.contraseña = req.body.contraseña;
+            newUsuario.tipoUsuario = 1;
+            newUsuario.correoElectronico = req.body.correoElectronico;
+            newUsuario.puntos = 0;
+            newUsuario.estado = 0;
+            usuario.insertOne(newUsuario, function(err, doc){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"usuario":doc});
+                }
+            });
         }
     ) // agregarLibro
     //eliminarLibro/089373546718
     //req.parms.isbn
     apirouter.delete("/eliminarLibro/:isbn",
         function(req, res){
-            res.status(500).json({"error":"Función no Implementada"});
+            var query = {"isbn": req.params.isbn};
+            libros.deleteOne(query,{w:1},function(err, doc){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"libro":doc});
+                }
+            } );
         }
     ) // eliminarLibro
     return apirouter;
