@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script language="javascript">
+    function vinculo(){
+        window.location = "/mob";
+    }
+    function vinculoHome(){
+        window.location = "/ho";
+    }
+  </script>
+
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title></title>
+    <link rel="stylesheet" href="stylesheets/jquery.mobile-1.4.5.min.css"/>
+    <script src="javascript/jquery-2.1.4.min.js" ></script>
+    <script src="javascript/jquery.mobile-1.4.5.min.js" ></script>
+  </head>
+  <body>
+    <div id="home" data-role="page">
+    <div data-role="header" data-position="fixed" data-theme="b">
+      <h3>goFood | Unicah</h3>
+    </div>
+
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Registro Nuevo Vendedor </li>
+    </ul>
+
+    <div role="main" class="ui-content">
+      <div class="ui-field-contain">
+        <label for="gk-73187vV">Nombre Local:</label>
+        <input type="text" name id="gk-73187vV">
+        <label for="gk-731FJgh">Direción Local:</label>
+        <input type="text" name id="gk-731FJgh">
+        <label for="gk-731753v">Descripción Local:</label>
+        <input type="text" name id="gk-731753v">
+      </div>
+    </div>
+
+    <!--el enctype debe soportar subida de archivos con multipart/form-data-->
+    <form enctype="multipart/form-data" class="formulario">
+      <label>Subir Imagen de Local</label>
+        <input name="archivo" type="file" id="imagen" /><br />
+    </form>
+    <!--div para visualizar mensajes-->
+    <div class="messages"></div><br />
+    <!--div para visualizar en el caso de imagen-->
+    <div class="showImage"></div>
+
+
+    <div data-position="fixed" data-role="footer"data-theme="b">
+      <div data-role="navbar" style="margin:0 0 -5px;">
+        <ul>
+          <li>
+            <a data-icon="home" data-theme="b" class="ui-btn-active ui-state-persist"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+      <script src="javascript/index.js"></script>
+  </body>
+</html>
