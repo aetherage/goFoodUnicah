@@ -22,11 +22,11 @@ las imagenes las guardariamos en una carpeta llamada imagenes que estaria ubicad
 La ruta seria algo como "/public/images/<id_del_usuario>/<nombre_establecimiento>/<nombre_de_la_imagen.jpg>"
 
 -----------------------------------------------------------
-# ESTRUCTURA
+## ESTRUCTURA
 
 
+### Usuario:
 
-var usuario =	{
 		"idUsuario": " ", ----- Numerico
 		"nombreUsuario" :" ", ---- string
 		"contraseña" : " ", ---- string masked
@@ -38,14 +38,13 @@ var usuario =	{
 					"nombreEstablecimiento": " ", ----- esto tambien un arreglo.
 					},
 				],
-
 		"correoElectronico": "   ", ------ string
 		"puntos": "    ", ------- numerico
 		"estado": "  " ------- numerico.
 		}
----------------------------------------------------------------------------
 
-var premium =
+####Premium
+
 	{
 		"idUsuario": " ", ----- numerico
 		"nombreUsuario": " ", ---- string
@@ -72,7 +71,8 @@ var premium =
 									},
 								],
 
----------------------- [] uso esto porque es una coleccion de datos que se van a repetir.
+### Promociones
+
 
 					"promociones":
 								{
@@ -95,11 +95,9 @@ var premium =
 		"puntos" : " ", ---- numerico
 		"estado" : " " ------ numerico
 	}
------------------------------------------------------
 
-// Aqui estaria la informacion que maneja
+###Administrador
 
-var administrador =
 	{
 		"idUsuario": " ", ---- numerico
 		"nombreUsuario": " ",  ----- string
