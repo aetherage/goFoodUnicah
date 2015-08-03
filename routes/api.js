@@ -5,8 +5,11 @@ function api(db){
     //Colecciones
     //http://mongodb.github.io/node-mongodb-native/2.0/api/Collection.html
     var usuario = db.collection("usuario");
+<<<<<<< HEAD
     var promociones = db.collection("premium");
     var favoritos = db.collection("premium");
+=======
+>>>>>>> 2f4cd21d77b2ad121863bd2819d5345886efe51c
     //Rutas
     apirouter.get("/obtenerusuarios",
         function(req, res){
@@ -19,6 +22,7 @@ function api(db){
                 }
             }) // usuarios.find toarray
         }
+<<<<<<< HEAD
     ) // obtenerusuarios
 
     apirouter.get("/obtenerPromos",
@@ -59,6 +63,20 @@ function api(db){
                 }
             });
 
+=======
+    ) // obtenerLibros
+    apirouter.get("/obtenerUsuario/:nombreUsuario",
+        function(req, res){
+            var query = {"nombreUsuario": req.params.nombreUsuario};
+            usuario.findOne(query, function(err, doc){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"usuario":doc});
+                }
+            });
+
+>>>>>>> 2f4cd21d77b2ad121863bd2819d5345886efe51c
         }
     ) // obtenerLibro
 
@@ -74,6 +92,7 @@ function api(db){
                     res.status(200).json({"libro":doc});
                 }
             });
+<<<<<<< HEAD
         }
     ) // modificarLibro
 
@@ -93,6 +112,11 @@ function api(db){
     ) // modificarLibro
 
 
+=======
+        }
+    ) // modificarLibro
+
+>>>>>>> 2f4cd21d77b2ad121863bd2819d5345886efe51c
     apirouter.put("/agregarUsuario",
         function(req, res){
             console.log(req.body);
@@ -100,7 +124,11 @@ function api(db){
             newUsuario.idUsuario = req.body.idUsuario;
             newUsuario.nombreUsuario = req.body.nombreUsuario;
             newUsuario.contraseña = req.body.contraseña;
+<<<<<<< HEAD
             newUsuario.tipoUsuario = 2;
+=======
+            newUsuario.tipoUsuario = 1;
+>>>>>>> 2f4cd21d77b2ad121863bd2819d5345886efe51c
             newUsuario.correoElectronico = req.body.correoElectronico;
             newUsuario.puntos = 0;
             newUsuario.estado = 0;

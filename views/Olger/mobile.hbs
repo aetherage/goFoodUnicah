@@ -1,0 +1,67 @@
+
+
+<html>
+<head>
+<script language="javascript">
+
+
+function vinculo(){
+  var formulario = $(document.myForm);
+  var formarray = formulario.serializeArray();
+  var formData = {};
+  for(var i = 0 ; i < formarray.length; i ++){
+      formData[formarray[i].name] = formarray[i].value;
+  }
+  console.log(formData);
+  window.location = "/p2";
+}
+
+
+function checkMe()
+{
+  if (document.myForm.PWD1.value == document.myForm.PWD2.value)
+  {
+    alert("Enhorabuena tu cuenta ha sido registrada..!");
+  }
+  else
+    alert("las contraseñas no coinciden!");
+}
+</script>
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title></title>
+<link rel="stylesheet" href="stylesheets/jquery.mobile-1.4.5.min.css"/>
+<script src="javascript/jquery-2.1.4.min.js" ></script>
+<script src="javascript/jquery.mobile-1.4.5.min.js" ></script>
+<script src='javascript/fn.js'></script>
+</head>
+<body>
+
+<div style="background-repeat: no-repeat no-repeat; background-size: auto auto;" data-theme="a" id="home" data-role="page">
+    <div data-role="header" data-theme="b">
+      <h3>GoFood | Unicah</h3>
+      <h1 is="gk-text">Registro </h1>
+    </div>
+    <br>
+
+        <form method="POST" name="myForm" id="myform">
+          <div role="main" class="ui-content">
+              <div class="ui-field-contain">
+                  <label for="usuario">Nombre de usuario:</label>
+                  <input name="txtUsuario" id="txtUsuario" type="text" class="usuario" maxlength="15">
+                  <label for="correo">Correo electrónico:</label>
+                  <input name="txtCorreo" id="txtCorreo" type="text" class="correo" maxlength="35">
+                  <label for="correo">Contraseña:</label>
+                  <input type="password" name="PWD1" id="PWD1" size="20" class="contrasena" maxlength="20">
+                  <label for="correo">Confirmar Contraseña:</label>
+                  <input type="password" name="PWD2" id="PWD2" size="20" class="contrasena2" maxlength="20"><br>
+                <input type="button" value="Registrarse" class="boton" name="btnGuardar" id="btnGuardar">
+              </div>
+          </div>
+        </form>
+
+</div>
+<script src="javascript/index.js"></script>
+</body>
+</html>
