@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/home');
+var routes = require('./routes/index');
 var users = require('./routes/users');
 
 function returnApp(db){
@@ -24,21 +24,37 @@ function returnApp(db){
     app.use(require('less-middleware')(path.join(__dirname, 'public')));
     app.use(express.static(path.join(__dirname, 'public')));
 
-    /*app.use('/', routes);*/
-    app.get("./routes/home.js",function(req,res){
-      req.render("layout",{});
+    //app.use('/', routes);
+    app.get("/", function(req,res){
+        res.render("login",{});
+    }) //mobile
+    app.get("/p2", function(req,res){
+        res.render("pagina2",{});
     })
-    app.get("/index.hbs",function(req,res){
-      req.render("index",{});
+    app.get("/mob", function(req,res){
+        res.render("mobile",{});
     })
+    app.get("/ho", function(req,res){
+        res.render("home",{});
+    })
+    app.get("/mapa", function(req,res){
+        res.render("mapaUsuario",{});
+    })
+    app.get("/fav", function(req,res){
+        res.render("favoritos",{});
+    })
+    app.get("/dl", function(req,res){
+        res.render("detalleLocal",{});
+    })
+
     app.use('/users', users);
 
     //para llamar a los modulos se usa la funcion require
     // la uri del módulo y debe especificar
     // en el módulo la exportación con
     // module.exports = <<funcion>>
-    /*var api = require('./routes/api.js')(db);
-    app.use('/api/v0', api);*/
+    var api = require('./routes/api.js')(db);
+    app.use('/api/v0', api);
     // http://localhost:3000/api/v0/obtenerLibros
 
     // catch 404 and forward to error handler
