@@ -3,9 +3,8 @@
 /**
  * Module dependencies.
  */
-
 var MongoClient = require('mongodb').MongoClient;
-var uri = "mongodb://localhost:27017/goFoodUnicah";
+var uri = "mongodb://localhost:27017/gofood";
 
 
 MongoClient.connect(uri, function(err, db){
@@ -21,7 +20,7 @@ MongoClient.connect(uri, function(err, db){
     var app = require('../app')(db);
 
 
-    var debug = require('debug')('goFoodUnicah:server');
+    var debug = require('debug')('proyectoUno:server');
     var http = require('http');
 
     /**

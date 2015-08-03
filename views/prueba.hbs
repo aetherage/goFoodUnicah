@@ -1,0 +1,61 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title></title>
+    <link rel="stylesheet" href="stylesheets/jquery.mobile-1.4.5.min.css"/>
+    <script src="javascript/jquery-2.1.4.min.js" ></script>
+    <script src="javascript/jquery.mobile-1.4.5.min.js" ></script>
+  </head>
+  <body>
+      <div data-role="page" id="pag1">
+        <div data-role="header" data-position="fixed">
+            <h4>Libros</h4>
+        </div>
+        <div role="main" class="ui-content">
+            <ul data-role="listview" id="promosList">
+
+
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>Copyright 2015</h4>
+        </div>
+      </div>
+      <script src="javascript/index.js"></script>
+  </body>
+</html> -->
+
+
+<html>
+<head>
+<script type="text/javascript">
+<!--
+myString=""
+
+function passdata(){
+myForm=document.f1
+for(i=0;i<1;i++){ // run through form elements
+myString+=add_delimiters(myForm.elements[i].name,myForm.elements[i].value) // get element name and value
+
+location.href = '/p2' + '?' + escape(myString)
+}
+
+function add_delimiters(n,v){
+if(n!=""){ // add = and & characters to identify name and value pairs
+return n+"="+v+"&"
+}
+}
+}
+// -->
+</script>
+</head>
+<body>
+<form name="f1">
+Text 1 <input type="text" name="text1" value="One" size="5">
+
+<input type="button" value="Pass Values" onclick="passdaa()">
+</form>
+</body>
+</html>

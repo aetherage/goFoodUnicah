@@ -1,0 +1,69 @@
+Implementacion de backbeam
+
+1. Autentificacion de usuarios por medio de FB
+2. Envio de notificaciones
+
+
+Envio de notificaciones:
+En primer lugar usted necesita para configurar su proyecto y su aplicación para poder enviar y recibir las notificaciones push . Usted necesita obtener una clave de una API en la consola de Google API para el servicio Google Cloud Mensajería. A continuación, edite la configuración de su proyecto y guardar esta clave del proyecto. Finalmente editar sus AndroidManifest.xml con los permisos adecuados y los siguientes servicios. Ejemplo:
+
+
+
+**https://code.google.com/apis/console/?hl=ES**
+
+Creación de un proyecto de API le permitirá :
+Utilice las API de Google más allá de los límites anónimos .
+Supervise el uso de principios activos y de acceso a la API de control.
+Compartir gestión de API con un equipo.
+
+
+
+
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.helloworld"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <!-- minimal required permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:allowBackup="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- minimal required services -->
+        <receiver
+            android:name="io.backbeam.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.example.helloworld" />
+            </intent-filter>
+        </receiver>
+        <service android:name="io.backbeam.GCMIntentService" />
+    </application>
+
+</manifest>
+
+   
+
