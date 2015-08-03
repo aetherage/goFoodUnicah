@@ -1,61 +1,63 @@
-<!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="UTF-8"  name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{title}}</title>
-    <link rel='stylesheet' src='./stylesheets/jquery.mobile-1.4.5.min.css' />
-  </head>
-  <body>
-    <div style="background-repeat: no-repeat no-repeat; background-size: auto auto;" data-theme="a" id="home" data-role="page">
-      <div data-role="header">
-        <h3>GoFood | Unicah</h3>
+<head>
 
-      </div>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title></title>
+<link rel="stylesheet" href="stylesheets/jquery.mobile-1.4.5.min.css"/>
+<script src="javascript/jquery-2.1.4.min.js" ></script>
+<script src="javascript/jquery.mobile-1.4.5.min.js" ></script>
+<script src='javascript/fn.js'></script>
+</head>
+<body>
 
-      <br>
-      <div role="main" class="ui-content">
-        <div class="ui-grid-a" style="height:100px">
-          <div class="ui-block-a" style="height:100%">
-            <img style="width:80%;" src="http://jqmdesigner.appspot.com/images/image.png" is="image">
-          </div>
-          <div class="ui-block-b" style="height:100%">
-            <h5 is="gk-text">Tuany's   <br>Promoción de hamburguesa <br></h5>
-          </div>
-        </div>
-        <br>
-        <div class="ui-grid-a" style="height:100px">
-          <div class="ui-block-a" style="height:100%">
-            <img style="width:80%;" src="http://jqmdesigner.appspot.com/images/image.png" is="image">
-          </div>
-          <div class="ui-block-b" style="height:100%">
-            <h5 is="gk-text">Comidas y Antojos Express   <br>Empanadas </h5>
-          </div>
-        </div>
-        <br>
-        <div class="ui-grid-a" style="height:100px">
-          <div class="ui-block-a" style="height:100%">
-            <img style="width:80%;" src="http://jqmdesigner.appspot.com/images/image.png" is="image">
-          </div>
-          <div class="ui-block-b" style="height:100%">
-            <h5 is="gk-text">Espresso Americano   <br>Laté saborizado</h5>
-          </div>
-        </div>
-      </div>
-      <div data-position="fixed" data-role="footer">
-        <div data-role="navbar">
-          <ul>
-            <li>
-              <a data-icon="user"></a>
-            </li>
-            <li>
-              <a data-icon="heart"></a>
-            </li>
-            <li>
-              <a data-icon="search"></a>
-            </li>
-          </ul>
-        </div>
+  <div style="background-repeat: no-repeat no-repeat; background-size: auto auto;" data-theme="a" id="home" data-role="page">
+    <div data-role="header" data-position="fixed" data-theme="b">
+      <h3>GoFood | Unicah </h3>
+      <a data-icon="user"></a>
+
+    </div>
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Jueves, Julio 30, 2015</li>
+        <li><a href="/p2">
+        <h2>Tuany's</h2>
+        <p><strong>Descuento de combo furioso</strong></p>
+        <p>Aprovecha esta promocion unica esta semana, solamente aqui en tuany's</p>
+            <p class="ui-li-aside"><strong>12:00</strong>PM</p>
+        </a></li>
+        <li><a href="/p2">
+        <h2>A que quedas Full</h2>
+        <p><strong>Promocion del combo 13 phillips</strong></p>
+        <p>Disfruta de nuestro mounstroso pepito de carne asada ,salsas y mas solo aqui "A que tq quedas full"</p>
+            <p class="ui-li-aside"><strong>2:00</strong>PM</p>
+        </a></li>
+        <li><a href="/p2">
+        <h2>Comidas Express</h2>
+        <p><strong>Alitas de Pollo</strong></p>
+        <p>Prueba nuestras clasicas alitas de pollo a un precio que te va a encantar</p>
+            <p class="ui-li-aside"><strong>3:00</strong>PM</p>
+        </a></li>
+    </ul>
+
+    <div data-position="fixed" data-role="footer">
+      <div data-role="navbar">
+        <ul>
+          <li>
+            <a data-icon="heart" data-theme="b" name="btnFav" id="btnFav" href="/fav"></a>
+          </li>
+          <li>
+            <a data-icon="home" data-theme="b" name="btnHome" id="btnHome" href="/ho"></a>
+          </li>
+          <li>
+            <a data-icon="search" data-theme="b"></a>
+          </li>
+        </ul>
       </div>
     </div>
-  </body>
+
+
+</div>
+  <script src="javascript/index.js"></script>
+</body>
 </html>
