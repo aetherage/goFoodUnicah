@@ -1,0 +1,49 @@
+Se copia al doc. de app.js
+se debe instalar en la maquina virtual-> npm install mongoose
+
+
+-------------------------------------------------------------------
+var request= require('request'),
+    cheerio= require('cheerio'),
+    fs     = require('fs'),
+    mongoose=require(mongoose);
+
+mongoose.connect('mongodb://localhost/img');
+
+var datosModel= mongoose.model('gofood',{
+	titulo: String,
+	imagen: String
+
+});
+
+request({url:http://thehackernews.com/,encoding:'binary'},funtion(err,resp,body)
+{
+if(!err && resp.statusCode=200){
+	var $=cheerio.load(body);
+	var i =0;
+	$('.blog-post .hnews').each(function(){
+	var titulo = $(this).find('h1 a').html();
+	var imagen= $(this).find('img').attr('src');
+
+	var file = fs.createWriteStream('img/'+i+'.jpg);
+	request(imagen).pipe(file);
+
+	var gofood = new datosmodel({
+	titulo:titulo,
+	imagen: i+'.jpg'
+});
+
+	gofood.save(function(error{
+	if(error){
+	console.log(error);	
+	}
+
+	})
+	i=i+1;
+});
+	console.log('Fin');
+}
+
+});
+
+

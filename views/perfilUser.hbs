@@ -1,0 +1,84 @@
+ <!-- <? php
+<script>
+
+  // var nomUsser=document.getElementById("txtPassNu");
+  // alert(nomUsser.innerHTML);
+  // $solucion = $primero + $segundo;
+  function obtenerNomUser(){
+  first = document.getElementById("txtPassActual").value;
+  $("#id_txt").attr("value")
+  javascript:alert(first);
+}
+
+</script>
+
+<?  -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <script>
+
+  </script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title></title>
+    <link rel="stylesheet" href="stylesheets/jquery.mobile-1.4.5.min.css"/>
+    <script src="javascript/jquery-2.1.4.min.js" ></script>
+    <script src="javascript/jquery.mobile-1.4.5.min.js" ></script>
+    <script src='javascript/fn.js'></script>
+  </head>
+  <body>
+
+
+<div id="home" data-role="page">
+  <div data-role="header" data-position="fixed" data-theme="b">
+    <h3>GoFood | Unicah</h3>
+  </div>
+  <div role="main" class="ui-content">
+
+
+
+   <!-- <input type="button" value="12Gwquardar" class="boton" onclick="obtenerNomUser()"> -->
+   <!-- <input type="button" value="12Gwquardar" class="boton" onClick="javascript:alert(document.getElementById('txtPassActual').value);"> -->
+
+   <label for="textinput-f">usuario:</label>
+   <input name="usuarioR" id="usuarioR"  value="" type="text">
+
+
+  <fieldset data-role="collapsible">
+        <legend>Cambiar Contraseña</legend>
+        <label for="textinput-f">Contraseña actual:</label>
+        <input name="txtPassActual" id="txtPassActual"  value="" type="text">
+
+        <label for="textinput-f">Introduzca su nueva Contraseña:</label>
+        <input name="txtPassNu" id="txtPassNu"  value="" type="text">
+
+        <label for="textinput-f">Confirmar contraseña:</label>
+        <input name="txtPassNuOtraVez" id="txtPassNuOtraVez"  value="" type="text">
+
+        <input type="button" value="Guardar" class="boton" name="btnActualizar" id="btnActualizar">
+    </fieldset>
+
+    <input type="button" value="Hazte vendedor" class="boton" name="btnActualizar" id="btnActualizar">
+    <!-- <input type="button" value="Hazte vendedor" onclick="irr()"> -->
+
+
+    <!-- <input type="button" value="ir" id="leo" name="leo" onclick="irr()"> -->
+
+  <div data-position="fixed" data-role="footer">
+    <div data-role="navbar">
+      <ul>
+        <li>
+          <a data-icon="home" data-theme="b" name="btnHome" id="btnHome" href="/ho"></a>
+        </li>
+            </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+</body>
+</html>

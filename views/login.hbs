@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <script language="javascript">
+    function vinculo(){
+        window.location = "/mob";
+    }
+
+    function vinculoHome(){
+        window.location = "/ho";
+    }
+
+
+
+//     $("#guardar").click(function(){
+//
+//  // var valor = document.formul.txtuser.value;
+//  //Esta misma línea de código se puede codificar así también con jQuery
+//  //var valor = $("#valor").attr("value");
+//  $("#division").data("midato",txtuser);
+//  $("#division").html('He guardado en este elemento (id="division") un dato llamado "midato" con el valor "' + txtuser + '"');
+// });
+//
+//
+// $("#leer").click(function(evento){
+// valor = $("#division").data("midato");
+// $("#division").html('En este elemento (id="division") leo un dato llamado "midato" con el valor "' + txtuser + '"');
+// });
+
+myString=""
+
+function passdata(){
+myForm=document.f1
+for(i=0;i<3;i++){ // run through form elements
+myString+=add_delimiters(myForm.elements[i].name,myForm.elements[i].value) // get element name and value
+location.href = '/ho' + '?' + myString
+}
+
+function add_delimiters(n,v){
+if(n!=""){ // add = and & characters to identify name and value pairs
+return n+"="+v+"&"
+}
+}
+}
+
+  </script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title></title>
+    <link rel="stylesheet" href="stylesheets/jquery.mobile-1.4.5.min.css"/>
+    <script src="javascript/jquery-2.1.4.min.js" ></script>
+    <script src="javascript/jquery.mobile-1.4.5.min.js" ></script>
+    <script src='javascript/fn.js'></script>
+  </head>
+  <body>
+      <div data-role="page" id="pag1" >
+        <div data-role="header" data-position="fixed" data-theme="b">
+          <h3>GoFood | Unicah </h3>
+        </div>
+        <div role="main" class="ui-content">
+          <img style="width:100%;" src="http://jqmdesigner.appspot.com/images/image.png" is="image">
+            <ul data-role="listview" id="usuariosList">
+        </div>
+
+
+        <div role="main" class="ui-content">
+          <form name="f1">
+        <label >Usuario</label>
+        <input name ="txtuser" id="txtuser" type="text" class="usuario" maxlength="25">
+        <label >Contraseña</label>
+        <input name ="txtcontrasena" id="txtcontrasena" type="password" class="contrasena" maxlength="20">
+      </form>
+      <!-- <input type="button" value="Entrar" class="botonEntrar" name="btnEntrar" id="btnEntrar"> -->
+
+
+      <input type="button" value="Entrar" class="botonEntrar">
+      <input type="button" value="Registrarse" class="boton" name="btnRegistrarse" id="btnRegistrarse" onclick="vinculo()">
+      <input type="button" value="Pass Values" onclick="passdata()">
+
+  </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>Copyright 2015</h4>
+        </div>
+      </div>
+      <script src="javascript/index.js"></script>
+  </body>
+</html>

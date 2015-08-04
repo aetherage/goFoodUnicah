@@ -5,6 +5,11 @@ function api(db){
     //Colecciones
     //http://mongodb.github.io/node-mongodb-native/2.0/api/Collection.html
     var usuario = db.collection("usuario");
+<<<<<<< HEAD
+    var promociones = db.collection("premium");
+    var favoritos = db.collection("premium");
+=======
+>>>>>>> 2f4cd21d77b2ad121863bd2819d5345886efe51c
     //Rutas
     apirouter.get("/obtenerusuarios",
         function(req, res){
@@ -15,8 +20,50 @@ function api(db){
                 }else{
                     res.status(200).json({"usuario":vUsuario});
                 }
-            }) // libros.find toarray
+            }) // usuarios.find toarray
         }
+<<<<<<< HEAD
+    ) // obtenerusuarios
+
+    apirouter.get("/obtenerPromos",
+        function(req, res){
+            var query = {};
+            promociones.find(query).toArray(function(err, vPromos){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"promociones":vPromos});
+                }
+            }) // Promos.find toarray
+        }
+    ) // obtenerPromos
+
+    apirouter.get("/obtenerFavoritos",
+        function(req, res){
+            var query = {};
+            favoritos.find(query).toArray(function(err, vFavoritos){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"favoritos":vFavoritos});
+                }
+            }) //Favoritos.find toarray
+        }
+    ) // obtenerFavoritos
+
+
+    apirouter.get("/obtenerUsuario/:nombreUsuario",
+        function(req, res){
+            var query = {"nombreUsuario": req.params.nombreUsuario};
+            usuario.findOne(query, function(err, doc){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"usuario":doc});
+                }
+            });
+
+=======
     ) // obtenerLibros
     apirouter.get("/obtenerUsuario/:nombreUsuario",
         function(req, res){
@@ -29,6 +76,7 @@ function api(db){
                 }
             });
 
+>>>>>>> 2f4cd21d77b2ad121863bd2819d5345886efe51c
         }
     ) // obtenerLibro
 
@@ -44,9 +92,31 @@ function api(db){
                     res.status(200).json({"libro":doc});
                 }
             });
+<<<<<<< HEAD
         }
     ) // modificarLibro
 
+    apirouter.post("/modificarUsuario/:nombreUsuario",
+        function(req, res){
+            var query = {"nombreUsuario": req.params.isbn};
+            var upd = {"$set":{"nombreUsuario":req.body.nombreUsuario}};
+
+            usuario.updateOne(query,upd,{w:1},function(err, doc){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"usuario":doc});
+                }
+            });
+        }
+    ) // modificarLibro
+
+
+=======
+        }
+    ) // modificarLibro
+
+>>>>>>> 2f4cd21d77b2ad121863bd2819d5345886efe51c
     apirouter.put("/agregarUsuario",
         function(req, res){
             console.log(req.body);
@@ -54,7 +124,11 @@ function api(db){
             newUsuario.idUsuario = req.body.idUsuario;
             newUsuario.nombreUsuario = req.body.nombreUsuario;
             newUsuario.contraseña = req.body.contraseña;
+<<<<<<< HEAD
+            newUsuario.tipoUsuario = 2;
+=======
             newUsuario.tipoUsuario = 1;
+>>>>>>> 2f4cd21d77b2ad121863bd2819d5345886efe51c
             newUsuario.correoElectronico = req.body.correoElectronico;
             newUsuario.puntos = 0;
             newUsuario.estado = 0;
