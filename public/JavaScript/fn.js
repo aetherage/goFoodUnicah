@@ -67,10 +67,79 @@ $(document).ready(function () {
             return false;
 
           }else{
-          
+
             todoCamposLlenos()
         }
   });
+
+
+  $(".btnActualizar").click(function (){
+
+    $(".error").remove();
+     if( $(".txtPassNu1").val() == "" ){
+        $(".txtPassNu1").focus().after("<span class='error'>Ingresa la nueva contraseña </span>");
+        return false;
+
+      }else if(!contr.test($(".txtPassNu1").val()) ){
+        $(".txtPassNu1").focus().after("<span class='error'>Formato incorrecto (MAY,min,num)</span>");
+        return false;
+
+
+      }else if( $(".txtPassNuOtraVez2").val() == "" ){
+          $(".txtPassNuOtraVez2").focus().after("<span class='error'>Ingresa nuevamente tu contraseña</span>");
+          return false;
+
+        }else if(!contr.test($(".txtPassNuOtraVez2").val()) ){
+          $(".txtPassNuOtraVez2").focus().after("<span class='error'>Formato incorrecto</span>");
+          return false;
+
+        }else{
+          $.ajax("api/v0/modificarPerfilUsuario/"+(sessionStorage.name),
+                  {
+                      "method":"POST",
+                      "data":{contraseña: $("#txtPassNuOtraVez").val()},
+                      // $( "#hd" ).val( ui.item.emp_id );
+                      "dataType":"json",
+                      "success":function(jsonDoc,status,jqXHR){
+                          console.log(jsonDoc);
+                          // pagina2.html
+                          // librosList.html(htmlstr).listview("refresh");
+                      },
+                      "error":function(jqXHR,status, errorMsg){
+                          console.log(errorMsg);
+                      }
+
+                  }
+              );
+
+              alert("La contraseña ha sido actualizada");
+
+      }
+});
+$(".botn").click(function (){
+  window.location = "/";
+});
+
+
+
+
+    // $.ajax("api/v0/modificarPerfilUsuario/gean7",
+    //         {
+    //             "method":"POST",
+    //             "data":{contraseña: $("#txtPassNuOtraVez").val()},
+    //             // $( "#hd" ).val( ui.item.emp_id );
+    //             "dataType":"json",
+    //             "success":function(jsonDoc,status,jqXHR){
+    //                 console.log(jsonDoc);
+    //                 // pagina2.html
+    //                 // librosList.html(htmlstr).listview("refresh");
+    //             },
+    //             "error":function(jqXHR,status, errorMsg){
+    //                 console.log(errorMsg);
+    //             }
+    //
+    //         }
+    //     );
 
 
 });

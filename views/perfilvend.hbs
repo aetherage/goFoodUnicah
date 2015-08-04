@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="stylesheets/jquery.mobile-1.4.5.min.css"/>
     <script src="javascript/jquery-2.1.4.min.js" ></script>
     <script src="javascript/jquery.mobile-1.4.5.min.js" ></script>
+    <script src='javascript/img.js'></script>
   </head>
   <body>
     <div id="home" data-role="page">
@@ -31,23 +32,26 @@
     <div role="main" class="ui-content">
       <div class="ui-field-contain">
         <label for="gk-73187vV">Nombre Local:</label>
-        <input type="text" name id="gk-73187vV">
+        <input type="text" name id="gk-73187vV" required/>
         <label for="gk-731FJgh">Direción Local:</label>
-        <input type="text" name id="gk-731FJgh">
+        <input type="text" name id="gk-731FJgh"required/>
         <label for="gk-731753v">Descripción Local:</label>
-        <input type="text" name id="gk-731753v">
+        <input type="text" name id="gk-731753v"required/>
       </div>
     </div>
 
     <!--el enctype debe soportar subida de archivos con multipart/form-data-->
     <form enctype="multipart/form-data" class="formulario">
       <label>Subir Imagen de Local</label>
-        <input name="archivo" type="file" id="imagen" /><br />
+        <input name="archivo" type="file" id="imagen" /><br/>
+        <a>subir</a>
     </form>
     <!--div para visualizar mensajes-->
     <div class="messages"></div><br />
     <!--div para visualizar en el caso de imagen-->
     <div class="showImage"></div>
+
+
 
 
     <div data-position="fixed" data-role="footer"data-theme="b">

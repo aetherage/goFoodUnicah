@@ -75,22 +75,24 @@ function todoLleno(){
                     console.log(jsonDoc);
                     var htmlstr = "";
                     // htmlstr = '<p>'+jsonDoc.usuario.nombreUsuario+'</p> <p>'+jsonDoc.usuario.contraseña+'</p> <p">'+jsonDoc.usuario.tipoUsuario+'</p>'
-                    usuariosList.html(htmlstr).listview("refresh");
+                    // usuariosList.html(htmlstr).listview("refresh");
 
                     if ($("#txtcontrasena").val() == jsonDoc.usuario.contraseña && $("#txtuser").val() == jsonDoc.usuario.nombreUsuario && jsonDoc.usuario.tipoUsuario == 1)
                     {
-                    alert("Bienvenido" +" 1 "+ $("#txtuser").val());
+                    alert("Bienvenido" +" "+ $("#txtuser").val());
                     vinculoHome()
                     sessionStorage.setItem("nombre", usuario.nombreUsuario);
 
                     }else if($("#txtcontrasena").val() == jsonDoc.usuario.contraseña && $("#txtuser").val() == jsonDoc.usuario.nombreUsuario && jsonDoc.usuario.tipoUsuario == 2){
-                      alert("Bienvenido" +" 2 "+ $("#txtuser").val());
+                      alert("Bienvenido" +"  "+ $("#txtuser").val());
+                      vinculoHome()
+                    }else if($("#txtcontrasena").val() == jsonDoc.usuario.contraseña && $("#txtuser").val() == jsonDoc.usuario.nombreUsuario && jsonDoc.usuario.tipoUsuario == 3){
+                      alert("Bienvenido" +"  "+ $("#txtuser").val());
+                      window.location = "/pa";
 
                     }else if($("#txtuser").val() !== jsonDoc.usuario.nombreUsuario){
                       alert("Usuario invalido");
-
-                  }
-                    else{
+                  }else{
                       alert("Usuario o contraseña incorrecta");
 
                     }
@@ -102,9 +104,6 @@ function todoLleno(){
             }
         );
 }
-
-
-
 
 
 $("#pag1").on("pagecreate",function(e){
@@ -137,3 +136,54 @@ $("#pag1").on("pagecreate",function(e){
 // hola;
 // alert("Usuario o contraseña incorrecta");
 // });
+
+
+// $("#btnActualizar").click(function(){
+//     $.ajax("api/v0/modificarPerfilUsuario/"+ sessionStorage.name,
+//             {
+//                 "method":"POST",
+//                 "data":{contraseña: $("#txtPassNuOtraVez").val()},
+//                 // $( "#hd" ).val( ui.item.emp_id );
+//                 "dataType":"json",
+//                 "success":function(jsonDoc,status,jqXHR){
+//                     console.log(jsonDoc);
+//                     // pagina2.html
+//                     // librosList.html(htmlstr).listview("refresh");
+//
+//                 },
+//                 "error":function(jqXHR,status, errorMsg){
+//                     console.log(errorMsg);
+//                 }
+//
+//             }
+//         );
+//  });
+
+
+
+// function actualizarContra(){
+//
+
+
+  //  $.post("api/v0/modificarPerfilUsuario/gean7", { contraseña: $("#txtPassNuOtraVez").val()} );
+
+      //
+      // $.ajax("api/v0/modificarPerfilUsuario/gean7",
+      //         {
+      //             "method":"POST",
+      //             "data":{contraseña: $("#txtPassNuOtraVez").val()},
+      //             // $( "#hd" ).val( ui.item.emp_id );
+      //             "dataType":"json",
+      //             "success":function(jsonDoc,status,jqXHR){
+      //                 console.log(jsonDoc);
+      //                 // pagina2.html
+      //                 // librosList.html(htmlstr).listview("refresh");
+      //             },
+      //             "error":function(jqXHR,status, errorMsg){
+      //                 console.log(errorMsg);
+      //             }
+      //
+      //         }
+      //     );
+      // alert("Bienvenido" +"  "+ $("#txtuser").val());
+ // };

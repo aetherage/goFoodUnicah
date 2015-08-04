@@ -1,6 +1,5 @@
 <html>
 <head>
-
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title></title>
@@ -8,8 +7,22 @@
 <script src="javascript/jquery-2.1.4.min.js" ></script>
 <script src="javascript/jquery.mobile-1.4.5.min.js" ></script>
 <script src='javascript/fn.js'></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="javascript/jquery-ui-1.8.14.custom.min.js" ></script>
+<script src="javascript/ttw-notification-menu.min.js" ></script>
+<script src="javascript/jquery.tools.js"></script>
+<script src="javascript/jquery.uniform.min.js"></script>
+<script src="javascript/main.js"></script>
+<script type="text/javascript"
+        src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+  google.load("jquery", "1.7.2");
+  google.load(etc..);
+</script>
 </head>
 <body>
+
   <div id="home" data-role="page" data-theme="b">
     <div data-role="header" data-position="fixed">
       <h3>Perfil</h3>
@@ -22,17 +35,23 @@
 
     <div data-position="fixed" data-role="footer">
       <div data-role="navbar">
-        <ul>
+        <ul class="ttw-notification-menu">
           <li>
-            <a data-icon="home" href="/ho"></a>
+          <a data-icon="home" href="/ho"></a>
           </li>
-          <li>
-            <a data-icon="star" href="/solicitudes"></a>
+          <li id="#solicitudes" class="notification-menu-item first-item">
+          <a data-icon = "star" href="/solicitudes"></a>
+          <span class="notification-bubble" style="display: inline; background-color: rgb(245, 108, 126);"></span>
           </li>
         </ul>
       </div>
     </div>
   </div>
+
+
+
+
+
 
 
   <script src="javascript/index.js"></script>

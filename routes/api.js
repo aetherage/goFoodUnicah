@@ -5,6 +5,8 @@ function api(db){
     //Colecciones
     //http://mongodb.github.io/node-mongodb-native/2.0/api/Collection.html
     var usuario = db.collection("usuario");
+    var promociones = db.collection("premium");
+    var favoritos = db.collection("favoritos");
     //Rutas
     apirouter.get("/obtenerusuarios",
         function(req, res){
@@ -15,9 +17,58 @@ function api(db){
                 }else{
                     res.status(200).json({"usuario":vUsuario});
                 }
-            }) // libros.find toarray
+            }) // usuarios.find toarray
         }
-    ) // obtenerLibros
+    ) // obtenerusuarios
+
+    apirouter.get("/obtenerPromos",
+        function(req, res){
+            var query = {};
+            promociones.find(query).toArray(function(err, vPromos){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"promociones":vPromos});
+                }
+            }) // Promos.find toarray
+        }
+    ) // obtenerPromos
+
+
+
+
+
+    apirouter.get("/obtenerFavoritos/:idUsuario",
+        function(req, res){
+            var query = {"idUsuario": req.params.idUsuario};
+            favoritos.find(query).toArray(function(err, vFavoritos){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"favoritos":vFavoritos});
+                }
+            }) // usuarios.find toarray
+        }
+    ) // obtenerusuarios
+
+
+    apirouter.post("/modificarPerfilUsuario/:nombreUsuario",
+        function(req, res){
+            var query = {"nombreUsuario": req.params.nombreUsuario};
+            var upd = {"$set":{"contraseña":req.body.contraseña}};
+
+            usuario.updateOne(query,upd,{w:1},function(err, doc){
+                if(err){
+                    res.status(500).json({"error":err});
+                }else{
+                    res.status(200).json({"usuario":doc});
+                }
+            });
+        }
+    ) // modificarLibro
+
+
+
     apirouter.get("/obtenerUsuario/:nombreUsuario",
         function(req, res){
             var query = {"nombreUsuario": req.params.nombreUsuario};
@@ -46,6 +97,22 @@ function api(db){
             });
         }
     ) // modificarLibro
+
+    // apirouter.post("/modificarUsuario/:nombreUsuario",
+    //     function(req, res){
+    //         var query = {"nombreUsuario": req.params.isbn};
+    //         var upd = {"$set":{"nombreUsuario":req.body.nombreUsuario}};
+    //
+    //         usuario.updateOne(query,upd,{w:1},function(err, doc){
+    //             if(err){
+    //                 res.status(500).json({"error":err});
+    //             }else{
+    //                 res.status(200).json({"usuario":doc});
+    //             }
+    //         });
+    //     }
+    // ) // modificarLibro
+
 
     apirouter.put("/agregarUsuario",
         function(req, res){
