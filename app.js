@@ -31,6 +31,12 @@ function returnApp(db){
     app.get("/p2", function(req,res){
         res.render("pagina2",{});
     })
+    app.get("/p1", function(req,res){
+        res.render("pagina1",{});
+    })
+    app.get("/p3", function(req,res){
+        res.render("pagina3",{});
+    })
     app.get("/mob", function(req,res){
         res.render("mobile",{});
     })

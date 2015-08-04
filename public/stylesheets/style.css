@@ -3,6 +3,9 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 =======
+ul {
+  background-image: url('http://4.bp.blogspot.com/-7WT9mxpGR2o/TxUKDNVVXzI/AAAAAAAALII/MPzIC9HLpGA/s1600/madera+vieja.png');
+}
 
 html,body{
   width:100%;
@@ -68,3 +71,6 @@ html,body{
 a {
   color: #00B7FF;
 }
+ #home{
+background-image: url('http://4.bp.blogspot.com/-7WT9mxpGR2o/TxUKDNVVXzI/AAAAAAAALII/MPzIC9HLpGA/s1600/madera+vieja.png');
+ }
