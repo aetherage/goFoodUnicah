@@ -31,12 +31,6 @@ function returnApp(db){
     app.get("/p2", function(req,res){
         res.render("pagina2",{});
     })
-    app.get("/p1", function(req,res){
-        res.render("pagina1",{});
-    })
-    app.get("/p3", function(req,res){
-        res.render("pagina3",{});
-    })
     app.get("/mob", function(req,res){
         res.render("mobile",{});
     })
@@ -52,7 +46,27 @@ function returnApp(db){
     app.get("/dl", function(req,res){
         res.render("detalleLocal",{});
     })
-
+    app.get("/pb", function(req,res){
+        res.render("prueba",{});
+    })
+    app.get("/pUsuario", function(req,res){
+        res.render("perfilUser",{});
+    })
+    app.get("/pvendedor", function(req,res){
+        res.render("perfilvend",{});
+    })
+    app.get("/pa", function(req,res){
+        res.render("perfiladmin",{});
+    })
+    app.get("/p1", function(req,res){
+            res.render("pagina1",{});
+        })
+        app.get("/p3", function(req,res){
+            res.render("pagina3",{});
+        })
+        app.get("/mapaL", function(req,res){
+            res.render("mapaLocal",{});
+        })
     app.use('/users', users);
 
     //para llamar a los modulos se usa la funcion require
@@ -96,5 +110,58 @@ function returnApp(db){
 
     return app;
 }// return app
+
+
+// _________________________________________________________________________
+/*var request= require('request'),
+      cheerio= require('cheerio'),
+      fs     = require('fs'),
+      mongoose=require(mongoose);
+
+  mongoose.connect('mongodb://192.168.4.130');
+
+  var datosModel= mongoose.model('gofood',{
+    titulo: String,
+    imagen: String
+
+  });
+
+  request({url:'http://thehackernews.com/',encoding:'binary'},function(err,resp,body)
+  {
+  if(!err && resp.statusCode=200){
+  	var $=cheerio.load(body);
+  	var i =0;
+  	$('.blog-post .hnews').each(function(){
+  	var titulo = $(this).find('h1 a').html();
+  	var imagen= $(this).find('img').attr('src');
+
+  	var file = fs.createWriteStream('img/'+i+'.jpg');
+  	request(imagen).pipe(file);
+
+  	var gofood = new datosmodel({
+       titulo:titulo,
+  	   imagen: i+'.jpg'
+  });
+
+  	gofood.save(function(error{
+  	if(error){
+  	console.log(error);
+  	}
+
+  	})
+  	i=i+1;
+  });
+  	console.log('Fin');
+  }
+
+  });
+*/
+
+
+// __________________________________________________________________________
+
+
+
+
 
 module.exports = returnApp;
